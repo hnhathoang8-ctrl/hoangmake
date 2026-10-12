@@ -1,0 +1,1697 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>👑 ANH EM CCVC — V11 MAI ĐỈNH</title>
+<link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700;900&family=Rajdhani:wght@400;600;700&family=JetBrains+Mono:wght@400;700&display=swap" rel="stylesheet">
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+:root{
+  --bg:#000;--card:#0a0a0f;--input:#050508;--border:#1f1f2e;
+  --txt:#fff;--txt2:#707090;--cyan:#00ffff;--pink:#ff00ff;--purple:#9d00ff;
+  --green:#00ff41;--red:#ff0040;--gold:#ffd700;--orange:#ff6600;--blue:#00bfff;
+}
+body.light-mode{--bg:#f0f2f5;--card:#fff;--input:#fff;--border:#e0e0e8;--txt:#1a1a2e;--txt2:#666}
+html,body{overflow-x:hidden}
+body{font-family:'Rajdhani','Segoe UI',sans-serif;background:var(--bg);color:var(--txt);min-height:100vh;padding:16px;line-height:1.6;position:relative;transition:background .3s}
+body::before{content:'';position:fixed;inset:0;background:radial-gradient(circle at 15% 15%,rgba(0,255,255,.12) 0,transparent 35%),radial-gradient(circle at 85% 85%,rgba(255,0,255,.12) 0,transparent 35%),radial-gradient(circle at 50% 50%,rgba(157,0,255,.08) 0,transparent 50%);z-index:-2;animation:bgPulse 8s ease-in-out infinite}
+@keyframes bgPulse{0%,100%{opacity:.85;filter:hue-rotate(0deg)}50%{opacity:1;filter:hue-rotate(20deg)}}
+body::after{content:'';position:fixed;inset:0;background-image:linear-gradient(rgba(0,255,255,.025) 1px,transparent 1px),linear-gradient(90deg,rgba(0,255,255,.025) 1px,transparent 1px);background-size:60px 60px;z-index:-1;pointer-events:none;animation:gridSlide 20s linear infinite}
+@keyframes gridSlide{0%{background-position:0 0,0 0}100%{background-position:60px 60px,60px 60px}}
+.particles{position:fixed;inset:0;pointer-events:none;z-index:-1;overflow:hidden}
+.particle{position:absolute;width:2px;height:2px;background:var(--cyan);border-radius:50%;box-shadow:0 0 8px var(--cyan);animation:floatUp linear infinite}
+@keyframes floatUp{0%{transform:translateY(100vh) scale(0);opacity:0}10%{opacity:1}90%{opacity:1}100%{transform:translateY(-10vh) scale(1);opacity:0}}
+.scan{position:fixed;top:0;left:0;width:100%;height:2px;background:linear-gradient(90deg,transparent,var(--cyan),transparent);opacity:.4;animation:scanMove 6s linear infinite;pointer-events:none;z-index:999;box-shadow:0 0 20px var(--cyan)}
+@keyframes scanMove{0%{transform:translateY(-100%)}100%{transform:translateY(100vh)}}
+.app{max-width:760px;margin:0 auto;position:relative;z-index:1}
+.header{position:relative;padding:28px 26px;background:linear-gradient(135deg,#0a0a0f 0,#1a0033 50%,#0a0a0f 100%);border-radius:24px;margin-bottom:18px;border:2px solid transparent;background-clip:padding-box;overflow:hidden;animation:headerEntry .8s cubic-bezier(.2,.9,.3,1.4)}
+@keyframes headerEntry{from{opacity:0;transform:translateY(-30px) scale(.95)}to{opacity:1;transform:translateY(0) scale(1)}}
+.header::before{content:'';position:absolute;inset:-2px;background:linear-gradient(45deg,var(--cyan),var(--pink),var(--purple),var(--gold),var(--cyan));background-size:400% 400%;border-radius:24px;z-index:-1;animation:borderFlow 4s linear infinite}
+@keyframes borderFlow{0%{background-position:0 50%}100%{background-position:400% 50%}}
+.header::after{content:'';position:absolute;top:-50%;left:-50%;width:200%;height:200%;background:linear-gradient(45deg,transparent 30%,rgba(0,255,255,.18) 50%,transparent 70%);animation:shine 3.5s linear infinite;pointer-events:none}
+@keyframes shine{0%{transform:translateX(-100%) translateY(-100%) rotate(45deg)}100%{transform:translateX(100%) translateY(100%) rotate(45deg)}}
+.hcontent{display:flex;align-items:center;justify-content:space-between;position:relative;z-index:2}
+.hleft{display:flex;align-items:center;gap:16px}
+.logo{width:68px;height:68px;background:linear-gradient(135deg,var(--cyan),var(--purple),var(--pink));border-radius:16px;display:flex;align-items:center;justify-content:center;font-size:36px;position:relative;animation:logoGlow 3s ease-in-out infinite,logoFloat 4s ease-in-out infinite}
+@keyframes logoFloat{0%,100%{transform:translateY(0)}50%{transform:translateY(-4px)}}
+.logo::after{content:'';position:absolute;inset:-5px;border-radius:22px;background:conic-gradient(from 0deg,var(--cyan),var(--pink),var(--purple),var(--gold),var(--cyan));z-index:-1;animation:spin 2.5s linear infinite;filter:blur(2px)}
+@keyframes spin{to{transform:rotate(360deg)}}
+@keyframes logoGlow{0%,100%{box-shadow:0 0 20px rgba(0,255,255,.6),0 0 40px rgba(255,0,255,.4)}50%{box-shadow:0 0 45px rgba(0,255,255,.9),0 0 70px rgba(255,0,255,.7)}}
+.htitle{font-family:'Orbitron',sans-serif;font-size:24px;font-weight:900;letter-spacing:3px;background:linear-gradient(90deg,var(--cyan),var(--pink),var(--gold),var(--cyan));background-size:300% 100%;-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;animation:textFlow 2.5s linear infinite}
+@keyframes textFlow{0%{background-position:0 50%}100%{background-position:300% 50%}}
+.hsub{font-size:11px;color:var(--cyan);font-weight:700;letter-spacing:4px;text-transform:uppercase;text-shadow:0 0 12px var(--cyan);margin-top:4px;animation:flicker 4s infinite}
+.hsub::before{content:'⚡ '}.hsub::after{content:' ⚡'}
+@keyframes flicker{0%,95%,100%{opacity:1}96%{opacity:.6}97%{opacity:1}98%{opacity:.7}}
+.tbtn{width:50px;height:50px;border-radius:14px;border:2px solid var(--cyan);background:rgba(0,255,255,.05);color:var(--cyan);font-size:22px;cursor:pointer;transition:all .35s cubic-bezier(.2,.9,.3,1.4);display:flex;align-items:center;justify-content:center}
+.tbtn:hover{background:var(--cyan);color:#000;transform:scale(1.15) rotate(180deg)}
+.card{background:var(--card);border-radius:18px;padding:22px 24px;margin-bottom:16px;border:1px solid var(--border);transition:all .35s;position:relative;overflow:hidden;animation:cardEntry .55s cubic-bezier(.2,.9,.3,1.2) backwards}
+@keyframes cardEntry{from{opacity:0;transform:translateY(20px)}to{opacity:1;transform:translateY(0)}}
+.card::before{content:'';position:absolute;top:0;left:0;width:4px;height:100%;background:linear-gradient(180deg,var(--cyan),var(--purple),var(--pink));opacity:.6;transition:opacity .3s}
+.card:hover{border-color:var(--cyan);box-shadow:0 0 40px rgba(0,255,255,.18);transform:translateX(3px)}
+.card:hover::before{opacity:1}
+.ch{display:flex;align-items:center;gap:12px;margin-bottom:18px;padding-bottom:14px;border-bottom:1px dashed var(--border)}
+.ci{font-size:22px;animation:iconBob 3s ease-in-out infinite}
+@keyframes iconBob{0%,100%{transform:translateY(0) rotate(0)}50%{transform:translateY(-3px) rotate(3deg)}}
+.ct{font-family:'Orbitron',sans-serif;font-size:12px;font-weight:700;text-transform:uppercase;letter-spacing:2.5px;color:var(--cyan);text-shadow:0 0 12px rgba(0,255,255,.6);flex:1}
+.fg{margin-bottom:14px}
+.fg:last-child{margin-bottom:0}
+label{display:block;font-size:11px;font-weight:700;color:var(--cyan);margin-bottom:6px;text-transform:uppercase;letter-spacing:2px}
+input[type=text],input[type=number],input[type=password],textarea,select{width:100%;padding:12px 14px;background:var(--input);border:1px solid var(--border);border-radius:11px;color:var(--txt);font-size:14px;font-family:inherit;transition:all .3s;outline:none}
+input:focus,textarea:focus,select:focus{border-color:var(--cyan);box-shadow:0 0 0 3px rgba(0,255,255,.15),0 0 25px rgba(0,255,255,.3)}
+input::placeholder,textarea::placeholder{color:var(--txt2);opacity:.55}
+textarea{resize:vertical;min-height:75px;font-family:'JetBrains Mono',monospace;font-size:12.5px}
+select{cursor:pointer;appearance:none;background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 24 24' fill='none' stroke='%2300ffff' stroke-width='2'%3E%3Cpolyline points='6 9 12 15 18 9'/%3E%3C/svg%3E");background-repeat:no-repeat;background-position:right 14px center;padding-right:40px}
+.ti{display:flex;gap:10px;margin-bottom:10px;animation:tokenIn .4s ease-out}
+@keyframes tokenIn{from{opacity:0;transform:translateX(-15px)}to{opacity:1;transform:translateX(0)}}
+.ti input{flex:1;font-family:'JetBrains Mono',monospace;font-size:12px}
+.brm{width:46px;height:46px;border:1px solid var(--red);background:rgba(255,0,64,.1);color:var(--red);border-radius:11px;cursor:pointer;font-size:18px;display:flex;align-items:center;justify-content:center;flex-shrink:0;transition:all .3s}
+.brm:hover{background:var(--red);color:#fff;transform:scale(1.08) rotate(90deg)}
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:8px;padding:13px 20px;border:none;border-radius:11px;font-size:12px;font-weight:800;font-family:'Orbitron',sans-serif;cursor:pointer;transition:all .3s;text-transform:uppercase;letter-spacing:1.5px;width:100%;position:relative;overflow:hidden}
+.btn:active{transform:scale(.97)}
+.bac{background:linear-gradient(135deg,var(--cyan),var(--purple));color:#000;box-shadow:0 0 25px rgba(0,255,255,.35)}
+.bac:hover{box-shadow:0 0 45px var(--cyan);transform:translateY(-2px)}
+.bsu{background:linear-gradient(135deg,var(--green),#00aa2a);color:#000;box-shadow:0 0 25px rgba(0,255,65,.35)}
+.bsu:hover{box-shadow:0 0 45px var(--green);transform:translateY(-2px)}
+.bda{background:linear-gradient(135deg,var(--red),#aa002a);color:#fff;box-shadow:0 0 25px rgba(255,0,64,.35)}
+.bda:hover{box-shadow:0 0 45px var(--red);transform:translateY(-2px)}
+.bgo{background:linear-gradient(135deg,var(--gold),var(--orange));color:#000;box-shadow:0 0 25px rgba(255,215,0,.35)}
+.bgo:hover{box-shadow:0 0 45px var(--gold);transform:translateY(-2px)}
+.bo{background:transparent;color:var(--cyan);border:1.5px solid var(--cyan)}
+.bo:hover{background:rgba(0,255,255,.12)}
+.bsm{padding:9px 15px;font-size:10px}
+.g2{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+.g3{display:grid;grid-template-columns:1fr 1fr 1fr;gap:12px}
+.g4{display:grid;grid-template-columns:repeat(4,1fr);gap:10px}
+@media(max-width:520px){.g3{grid-template-columns:1fr 1fr}.g4{grid-template-columns:1fr 1fr}}
+.tr{display:flex;align-items:center;justify-content:space-between;padding:13px 15px;background:var(--input);border-radius:12px;margin-bottom:8px;border:1px solid var(--border);transition:all .3s}
+.tr:hover{border-color:var(--purple);box-shadow:0 0 20px rgba(157,0,255,.25)}
+.tr:last-child{margin-bottom:0}
+.tl{display:flex;align-items:center;gap:12px;font-size:13px;font-weight:700}
+.tl .ic{font-size:18px}
+.td{font-size:10px;color:var(--txt2);font-weight:400;display:block;margin-top:3px;line-height:1.4}
+.sw{position:relative;display:inline-block;width:48px;height:26px;flex-shrink:0}
+.sw input{opacity:0;width:0;height:0}
+.slider{position:absolute;cursor:pointer;inset:0;background:#222;transition:.35s;border-radius:26px;border:1px solid var(--border)}
+.slider:before{position:absolute;content:"";height:18px;width:18px;left:3px;bottom:3px;background:#666;transition:.35s;border-radius:50%}
+input:checked+.slider{background:linear-gradient(135deg,var(--cyan),var(--purple));border-color:var(--cyan);box-shadow:0 0 18px rgba(0,255,255,.6)}
+input:checked+.slider:before{transform:translateX(22px);background:#fff}
+.preset-btn{padding:16px 10px;border-radius:14px;border:2px solid var(--border);background:var(--input);color:var(--txt2);font-family:'Orbitron',sans-serif;font-size:11px;font-weight:700;cursor:pointer;transition:all .3s;text-transform:uppercase;letter-spacing:1px;text-align:center;line-height:1.3}
+.preset-btn:hover{border-color:var(--cyan);color:var(--cyan);transform:translateY(-2px)}
+.preset-btn.active{border-color:var(--cyan);color:#000;box-shadow:0 0 30px rgba(0,255,255,.6);transform:scale(1.03)}
+.preset-btn[data-preset="stealth"].active{background:linear-gradient(135deg,var(--blue),var(--cyan))}
+.preset-btn[data-preset="balanced"].active{background:linear-gradient(135deg,var(--green),var(--cyan))}
+.preset-btn[data-preset="aggressive"].active{background:linear-gradient(135deg,var(--gold),var(--orange));border-color:var(--orange);box-shadow:0 0 30px rgba(255,165,0,.6)}
+.preset-btn[data-preset="turbo"].active{background:linear-gradient(135deg,var(--red),var(--orange));border-color:var(--red);box-shadow:0 0 30px rgba(255,0,64,.7);animation:turboPulse 1s ease-in-out infinite}
+@keyframes turboPulse{0%,100%{box-shadow:0 0 30px rgba(255,0,64,.7)}50%{box-shadow:0 0 50px rgba(255,0,64,1)}}
+.preset-btn .sub{display:block;font-size:9px;opacity:.75;margin-top:4px;letter-spacing:0;font-weight:600}
+.stats{display:grid;grid-template-columns:repeat(4,1fr);gap:10px;margin-top:14px}
+.stat{background:var(--input);border-radius:12px;padding:14px 8px;text-align:center;border:1px solid var(--border);transition:all .35s}
+.stat:hover{border-color:var(--cyan);box-shadow:0 0 25px rgba(0,255,255,.3);transform:translateY(-3px)}
+.sv{font-family:'Orbitron',sans-serif;font-size:22px;font-weight:900;color:var(--cyan);text-shadow:0 0 15px var(--cyan);line-height:1.1}
+.sv.success{color:var(--green);text-shadow:0 0 15px var(--green)}
+.sv.danger{color:var(--red);text-shadow:0 0 15px var(--red)}
+.sv.purple{color:var(--purple);text-shadow:0 0 15px var(--purple)}
+.sv.gold{color:var(--gold);text-shadow:0 0 15px var(--gold)}
+.sv.blue{color:var(--blue);text-shadow:0 0 15px var(--blue)}
+.sl{font-size:9px;color:var(--txt2);text-transform:uppercase;letter-spacing:1.2px;font-weight:700;margin-top:3px}
+.log{background:#000;border-radius:12px;padding:14px;height:300px;overflow-y:auto;font-family:'JetBrains Mono',monospace;font-size:11.5px;line-height:1.9;border:1px solid var(--green);box-shadow:inset 0 0 40px rgba(0,255,65,.12)}
+.log::-webkit-scrollbar{width:8px}
+.log::-webkit-scrollbar-thumb{background:var(--green);border-radius:4px}
+.ll{color:var(--green);padding-left:4px;animation:logIn .3s ease-out}
+@keyframes logIn{from{opacity:0;transform:translateX(-8px)}to{opacity:1;transform:translateX(0)}}
+.ll.error{color:var(--red)}
+.ll.warn{color:var(--gold)}
+.ll.info{color:var(--cyan)}
+.ll.success{color:var(--green);text-shadow:0 0 10px var(--green)}
+.ll.anti{color:var(--purple)}
+.ll.ws{color:#00bfff}
+.ll.global{color:var(--red);font-weight:900;background:rgba(255,0,64,.15);padding:2px 6px;border-radius:4px}
+.ll.recover{color:var(--green);font-weight:700}
+.ll.debug{color:var(--txt2);font-style:italic}
+.ll.typing{color:var(--pink)}
+.log-search{margin-bottom:10px;display:flex;gap:8px;align-items:center}
+.notif-stack{position:fixed;top:20px;right:20px;z-index:9999;display:flex;flex-direction:column;gap:10px;pointer-events:none;max-width:calc(100vw - 40px)}
+.notif{background:var(--card);border:2px solid var(--cyan);border-radius:14px;padding:14px 20px;font-weight:700;font-size:13px;box-shadow:0 0 35px rgba(0,255,255,.5),0 10px 40px rgba(0,0,0,.6);display:flex;align-items:center;gap:12px;animation:notifIn .4s cubic-bezier(.2,.9,.3,1.4);pointer-events:auto;min-width:280px;max-width:400px}
+@keyframes notifIn{from{opacity:0;transform:translateX(400px)}to{opacity:1;transform:translateX(0)}}
+@keyframes notifOut{from{opacity:1;transform:translateX(0)}to{opacity:0;transform:translateX(400px)}}
+.notif.hide{animation:notifOut .4s ease-out forwards}
+.notif.success{border-color:var(--green)}
+.notif.error{border-color:var(--red)}
+.notif.warn{border-color:var(--gold)}
+.notif.info{border-color:var(--blue)}
+.notif-icon{font-size:24px;flex-shrink:0}
+.notif-body{flex:1;min-width:0}
+.notif-title{font-family:'Orbitron',sans-serif;font-size:11px;letter-spacing:1.5px;text-transform:uppercase;color:var(--txt2);margin-bottom:2px}
+.notif-text{color:var(--txt);font-size:13px;font-weight:700;word-break:break-word}
+.toast{position:fixed;bottom:28px;left:50%;transform:translateX(-50%) translateY(120px);background:var(--card);border:2px solid var(--cyan);border-radius:14px;padding:14px 26px;font-weight:700;font-size:14px;box-shadow:0 0 40px rgba(0,255,255,.6);transition:transform .35s;z-index:9998;display:flex;align-items:center;gap:12px;max-width:calc(100vw - 40px)}
+.toast.show{transform:translateX(-50%) translateY(0)}
+.sd{width:11px;height:11px;border-radius:50%;background:var(--txt2);display:inline-block;transition:all .3s}
+.sd.active{background:var(--green);box-shadow:0 0 12px var(--green),0 0 24px var(--green);animation:pulse 1.5s infinite}
+@keyframes pulse{0%,100%{transform:scale(1);opacity:1}50%{transform:scale(1.3);opacity:.7}}
+.bdg{display:inline-block;padding:4px 12px;border-radius:22px;font-size:9px;font-weight:900;text-transform:uppercase;letter-spacing:1.8px;font-family:'Orbitron',sans-serif}
+.bdg-p{background:linear-gradient(135deg,var(--pink),var(--purple),var(--cyan));color:#000}
+.bdg-ok{background:linear-gradient(135deg,var(--green),#00aa2a);color:#000}
+.bdg-warn{background:linear-gradient(135deg,var(--gold),var(--orange));color:#000}
+.bdg-err{background:linear-gradient(135deg,var(--red),#aa002a);color:#fff}
+.fw{position:relative}
+.fw input[type=file]{position:absolute;opacity:0;width:100%;height:100%;cursor:pointer;z-index:2}
+.fl{display:flex;align-items:center;justify-content:center;gap:10px;padding:16px;background:var(--input);border:2px dashed var(--border);border-radius:12px;color:var(--txt2);font-size:13px;font-weight:600;cursor:pointer;transition:all .3s;letter-spacing:1px}
+.fw:hover .fl{border-color:var(--cyan);color:var(--cyan)}
+.progress{position:fixed;top:0;left:0;height:3px;background:linear-gradient(90deg,var(--cyan),var(--pink),var(--purple));background-size:200% 100%;z-index:10000;transition:width .3s;box-shadow:0 0 15px var(--cyan);width:0}
+.progress.active{animation:progressShine 1.5s linear infinite}
+@keyframes progressShine{0%{background-position:0 50%}100%{background-position:200% 50%}}
+.msg-info{margin-top:10px;font-size:12px;color:var(--cyan);text-align:center;font-family:'JetBrains Mono',monospace}
+.msg-info.warn{color:var(--gold)}
+.warn-banner{background:linear-gradient(135deg,rgba(255,0,64,.15),rgba(255,102,0,.15));border:1px solid var(--red);border-radius:12px;padding:12px 16px;margin-bottom:12px;font-size:12px;color:var(--red);font-weight:700;display:none;letter-spacing:.5px}
+.warn-banner.show{display:block;animation:cardEntry .3s}
+body.spamming .scan,
+body.spamming .particles,
+body.spamming::after,
+body.spamming::before{display:none !important;animation:none !important}
+body.spamming .card,
+body.spamming .card::before,
+body.spamming .card:hover{animation:none !important;transition:none !important;transform:none !important;box-shadow:none !important}
+body.spamming .ci,
+body.spamming .logo,
+body.spamming .logo::after,
+body.spamming .hsub,
+body.spamming .htitle{animation:none !important}
+body.spamming .preset-btn.active.turbo{animation:none !important}
+body.spamming .sd.active{animation:none !important}
+body.spamming .progress.active{animation:none !important}
+</style>
+</head>
+<body>
+<div class="progress" id="progress"></div>
+<div class="scan"></div>
+<div class="particles" id="particles"></div>
+<div class="notif-stack" id="notif-stack"></div>
+<div class="app">
+
+<div class="header">
+  <div class="hcontent">
+    <div class="hleft">
+      <div class="logo">👑</div>
+      <div>
+        <div class="htitle">ANH EM CCVC</div>
+        <div class="hsub">MÃI ĐỈNH · V11 PROXY-READY</div>
+      </div>
+    </div>
+    <button class="tbtn" id="theme-btn" onclick="toggleTheme()">🌙</button>
+  </div>
+</div>
+
+<div class="warn-banner" id="warn-banner"></div>
+
+<div class="card" style="animation-delay:.05s">
+  <div class="ch"><span class="ci">🔑</span><span class="ct">KHO TOKEN</span><span class="bdg bdg-p">SECURE</span></div>
+  <div id="token-container">
+    <div class="ti">
+      <input type="text" class="token-input" placeholder="Dán token Discord vào đây...">
+      <button class="brm" onclick="removeToken(this)" title="Xóa">✕</button>
+    </div>
+  </div>
+  <div style="margin-top:12px;display:flex;gap:10px;flex-wrap:wrap">
+    <button class="btn bac bsm" style="flex:1" onclick="addTokenField()">+ THÊM TOKEN</button>
+    <button class="btn bgo bsm" style="flex:1" onclick="saveTokens()">💾 LƯU</button>
+    <button class="btn bo bsm" style="flex:1" onclick="checkTokens()">🔍 CHECK LIVE</button>
+  </div>
+</div>
+
+<div class="card" style="animation-delay:.1s">
+  <div class="ch"><span class="ci">🎯</span><span class="ct">CHIẾN LƯỢC</span><span class="bdg bdg-ok" id="preset-badge">BALANCED</span></div>
+  <div class="g4" style="margin-bottom:14px">
+    <button class="preset-btn" data-preset="stealth" onclick="setPreset('stealth')">
+      🐢 STEALTH<span class="sub">3000ms · batch 3<br>sống tuần-tháng</span>
+    </button>
+    <button class="preset-btn active" data-preset="balanced" onclick="setPreset('balanced')">
+      ⚡ BALANCED<span class="sub">1200ms · batch 6<br>sống ngày-tuần</span>
+    </button>
+    <button class="preset-btn" data-preset="aggressive" onclick="setPreset('aggressive')">
+      🔥 AGGRESSIVE<span class="sub">300ms · batch 12<br>sống giờ-ngày</span>
+    </button>
+    <button class="preset-btn" data-preset="turbo" onclick="setPreset('turbo')">
+      ☠️ TURBO LIỀU<span class="sub">30ms · batch 30<br>sống phút-giờ</span>
+    </button>
+  </div>
+  <div class="g3">
+    <div class="fg">
+      <label>DELAY (MS)</label>
+      <input type="number" id="delay" value="1200" min="10" oninput="markCustom()">
+    </div>
+    <div class="fg">
+      <label>BATCH SIZE</label>
+      <input type="number" id="batch_size" value="6" min="1" max="100" oninput="markCustom()">
+    </div>
+    <div class="fg">
+      <label>MAX TIN/GIỜ/TOKEN</label>
+      <input type="number" id="burst_limit" value="0" min="0">
+    </div>
+  </div>
+  <div class="g3" style="margin-top:6px">
+    <div class="fg">
+      <label>RETRY 429 (MS)</label>
+      <input type="number" id="retry_429" value="3000" min="500">
+    </div>
+    <div class="fg">
+      <label>AGE MIN (NGÀY)</label>
+      <input type="number" id="min_age" value="0" min="0">
+    </div>
+    <div class="fg">
+      <label>CHANNEL COOLDOWN (S)</label>
+      <input type="number" id="ch_cooldown" value="3" min="0">
+    </div>
+  </div>
+  <div class="g2" style="margin-top:6px">
+    <div class="fg" style="margin-bottom:0">
+      <label>AUTO-CYCLE: CHẠY (PHÚT)</label>
+      <input type="number" id="cycle_run" value="15" min="1">
+    </div>
+    <div class="fg" style="margin-bottom:0">
+      <label>AUTO-CYCLE: NGHỈ (PHÚT)</label>
+      <input type="number" id="cycle_rest" value="3" min="0">
+    </div>
+  </div>
+  <div class="tr" style="margin-top:10px">
+    <div class="tl"><span class="ic">🔄</span><div>AUTO-CYCLE<span class="td">Chạy X phút nghỉ Y phút, lặp lại</span></div></div>
+    <label class="sw"><input type="checkbox" id="auto_cycle" checked><span class="slider"></span></label>
+  </div>
+  <div class="tr">
+    <div class="tl"><span class="ic">🎚️</span><div>AUTO-THROTTLE<span class="td">Tự giảm khi 429, tự tăng khi ổn</span></div></div>
+    <label class="sw"><input type="checkbox" id="auto_throttle" checked><span class="slider"></span></label>
+  </div>
+</div>
+
+<div class="card" style="animation-delay:.15s">
+  <div class="ch"><span class="ci">🌐</span><span class="ct">PROXY (TÙY CHỌN)</span><span class="bdg bdg-warn">OPTIONAL</span></div>
+  <div class="fg">
+    <label>DANH SÁCH PROXY (MỖI DÒNG 1 — TRỐNG = IP GỐC)</label>
+    <textarea id="proxies" rows="3" placeholder="http://user:pass@ip:port&#10;socks5://ip:port&#10;http://ip:port"></textarea>
+  </div>
+  <div class="tr">
+    <div class="tl"><span class="ic">📌</span><div>STICKY PER TOKEN<span class="td">Mỗi token gắn 1 proxy cố định</span></div></div>
+    <label class="sw"><input type="checkbox" id="proxy_sticky" checked><span class="slider"></span></label>
+  </div>
+  <div class="msg-info" id="proxy-info">Không proxy = 1 IP gánh tất cả. Đi chậm là cách duy nhất sống lâu.</div>
+</div>
+<div class="card" style="animation-delay:.2s">
+  <div class="ch"><span class="ci">🛡️</span><span class="ct">CHỐNG BAN CỐT LÕI</span><span class="bdg bdg-p">CORE</span></div>
+  <div class="tr"><div class="tl"><span class="ic">🎭</span><div>SUPER PROPERTIES<span class="td">Fake Discord client props per-token</span></div></div><label class="sw"><input type="checkbox" id="anti_super_props" checked><span class="slider"></span></label></div>
+  <div class="tr"><div class="tl"><span class="ic">🌍</span><div>GLOBAL 429 DETECT<span class="td">Discord chặn toàn IP → nghỉ tất cả</span></div></div><label class="sw"><input type="checkbox" id="anti_global" checked><span class="slider"></span></label></div>
+  <div class="tr"><div class="tl"><span class="ic">⏸️</span><div>TOKEN PENALTY<span class="td">Token 429 → nghỉ riêng, không skip</span></div></div><label class="sw"><input type="checkbox" id="anti_penalty" checked><span class="slider"></span></label></div>
+  <div class="tr"><div class="tl"><span class="ic">📅</span><div>AGE CHECK<span class="td">Bỏ qua token mới tạo dưới N ngày</span></div></div><label class="sw"><input type="checkbox" id="anti_age" checked><span class="slider"></span></label></div>
+  <div class="tr"><div class="tl"><span class="ic">📊</span><div>PROACTIVE RATE-LIMIT<span class="td">Đọc header Discord → chờ trước khi bị đập</span></div></div><label class="sw"><input type="checkbox" id="anti_proactive" checked><span class="slider"></span></label></div>
+  <div class="tr"><div class="tl"><span class="ic">🎲</span><div>JITTER MỌI NƠI<span class="td">Delay/batch/order random nhẹ</span></div></div><label class="sw"><input type="checkbox" id="anti_jitter" checked><span class="slider"></span></label></div>
+  <div class="tr"><div class="tl"><span class="ic">🧹</span><div>SANITIZE TOKEN<span class="td">Lọc ký tự ẩn khi paste</span></div></div><label class="sw"><input type="checkbox" id="anti_sanitize" checked><span class="slider"></span></label></div>
+  <div class="tr"><div class="tl"><span class="ic">🔁</span><div>NETWORK RETRY<span class="td">Retry 2 lần khi lỗi mạng</span></div></div><label class="sw"><input type="checkbox" id="anti_retry" checked><span class="slider"></span></label></div>
+</div>
+
+<div class="card" style="animation-delay:.25s">
+  <div class="ch"><span class="ci">⌨️</span><span class="ct">FAKE GÕ</span><span class="bdg bdg-p" id="typing-badge">SHORT</span></div>
+  <div class="g4" style="margin-bottom:14px">
+    <button class="preset-btn" id="typing-off" onclick="setTyping('off')">OFF<span class="sub">gửi thẳng</span></button>
+    <button class="preset-btn" id="typing-short" onclick="setTyping('short')">SHORT<span class="sub">300-1200ms</span></button>
+    <button class="preset-btn active" id="typing-realistic" onclick="setTyping('realistic')">REALISTIC<span class="sub">theo độ dài tin</span></button>
+    <button class="preset-btn" id="typing-mixed" onclick="setTyping('mixed')">MIXED<span class="sub">random 2 mode</span></button>
+  </div>
+  <div class="msg-info">REALISTIC mô phỏng tốc độ gõ người 4-7 ký tự/giây · tin 100 ký tự ≈ 15-20s</div>
+</div>
+
+<div class="card" style="animation-delay:.3s">
+  <div class="ch"><span class="ci">📢</span><span class="ct">MỤC TIÊU & NỘI DUNG</span></div>
+  <div class="fg">
+    <label>ID CHANNELS (MỖI DÒNG 1)</label>
+    <textarea id="channels" rows="4" placeholder="123456789012345678&#10;987654321098765432"></textarea>
+  </div>
+  <div class="g3">
+    <div class="fg">
+      <label>CHẾ ĐỘ TAG</label>
+      <select id="tag_mode">
+        <option value="none">Không Tag</option>
+        <option value="everyone">@everyone</option>
+        <option value="user">Tag User</option>
+      </select>
+    </div>
+    <div class="fg">
+      <label>ID TAG</label>
+      <input type="text" id="tag_id" placeholder="User ID...">
+    </div>
+    <div class="fg">
+      <label>VỊ TRÍ TAG</label>
+      <select id="tag_pos">
+        <option value="after" selected>Sau câu</option>
+        <option value="before">Trước câu</option>
+      </select>
+    </div>
+  </div>
+  <div class="fg">
+    <label>NỘI DUNG (MỖI DÒNG 1 BIẾN THỂ)</label>
+    <textarea id="msg" rows="3" placeholder="Xin chào anh em&#10;Hello mọi người"></textarea>
+  </div>
+  <div class="fg">
+    <label>📂 UPLOAD FILE CÂU (.TXT / .CSV / .JSON)</label>
+    <div class="fw">
+      <input type="file" id="file_msg" accept=".txt,.csv,.json,text/plain" onchange="loadMsgFile(event)">
+      <div class="fl"><span>📂</span> CHỌN FILE CÂU...</div>
+    </div>
+    <div style="margin-top:10px;display:flex;gap:10px;flex-wrap:wrap">
+      <button class="btn bo bsm" style="flex:1" onclick="clearMsgFile()">🗑️ XÓA FILE</button>
+      <button class="btn bo bsm" style="flex:1" onclick="showMsgStats()">📊 THỐNG KÊ</button>
+    </div>
+    <div class="msg-info" id="msg-file-info"></div>
+  </div>
+  <div class="tr">
+    <div class="tl"><span class="ic">#️⃣</span><div>THÊM "#" TRƯỚC CÂU</div></div>
+    <label class="sw"><input type="checkbox" id="prefix_hash"><span class="slider"></span></label>
+  </div>
+  <div class="tr">
+    <div class="tl"><span class="ic">🎲</span><div>KHÔNG TRÙNG CÂU<span class="td">Mỗi câu dùng 1 lần / session</span></div></div>
+    <label class="sw"><input type="checkbox" id="no_repeat" checked><span class="slider"></span></label>
+  </div>
+  <div class="tr">
+    <div class="tl"><span class="ic">🔁</span><div>RESET KHI HẾT<span class="td">Hết câu → dùng lại từ đầu</span></div></div>
+    <label class="sw"><input type="checkbox" id="reset_when_empty" checked><span class="slider"></span></label>
+  </div>
+</div>
+
+<div class="card" style="animation-delay:.35s">
+  <div class="ch">
+    <span class="ci">🚀</span>
+    <span class="ct">BẢNG ĐIỀU KHIỂN</span>
+    <span class="sd" id="status-dot" style="margin-left:auto"></span>
+  </div>
+  <div class="g2" style="margin-bottom:12px">
+    <button class="btn bsu" onclick="start()">🚀 SPAM</button>
+    <button class="btn bda" onclick="stop()">🛑 DỪNG</button>
+  </div>
+  <div class="stats">
+    <div class="stat"><div class="sv success" id="stat-sent">0</div><div class="sl">Đã Gửi</div></div>
+    <div class="stat"><div class="sv danger" id="stat-fail">0</div><div class="sl">Lỗi</div></div>
+    <div class="stat"><div class="sv purple" id="stat-skip">0</div><div class="sl">Skip</div></div>
+    <div class="stat"><div class="sv gold" id="stat-rate">0.0</div><div class="sl">Tin/Giây</div></div>
+  </div>
+  <div class="stats">
+    <div class="stat"><div class="sv gold" id="stat-429">0</div><div class="sl">429</div></div>
+    <div class="stat"><div class="sv purple" id="stat-age">0</div><div class="sl">Skip Age</div></div>
+    <div class="stat"><div class="sv" id="stat-penalty">0</div><div class="sl">Penalty</div></div>
+    <div class="stat"><div class="sv blue" id="stat-throttle" style="font-size:16px">100%</div><div class="sl">Throttle</div></div>
+  </div>
+  <div class="stats">
+    <div class="stat"><div class="sv blue" id="stat-concurrent" style="font-size:16px">0</div><div class="sl">Concurrent</div></div>
+    <div class="stat"><div class="sv" id="stat-typing" style="font-size:16px">0</div><div class="sl">Typing</div></div>
+    <div class="stat"><div class="sv" id="stat-cycle" style="font-size:16px;color:var(--green)">RUN</div><div class="sl">Cycle</div></div>
+    <div class="stat"><div class="sv" id="stat-uptime" style="font-size:16px">0s</div><div class="sl">Uptime</div></div>
+  </div>
+</div>
+
+<div class="card" style="animation-delay:.4s">
+  <div class="ch">
+    <span class="ci">📋</span>
+    <span class="ct">TERMINAL LOG</span>
+    <button class="btn bo bsm" style="width:auto;padding:5px 12px" onclick="clearLog()">XÓA</button>
+    <button class="btn bo bsm" style="width:auto;padding:5px 12px" onclick="exportLog()">📥 EXPORT</button>
+  </div>
+  <div class="log-search">
+    <input type="text" id="log-search" placeholder="🔍 Tìm trong log..." oninput="filterLog(this.value)" style="flex:1;padding:8px 12px;font-size:12px">
+  </div>
+  <div class="log" id="log">
+    <div class="ll info">> [SYSTEM] ANH EM CCVC — V11 khởi động...</div>
+    <div class="ll success">> [READY] Anti-ban core: ACTIVE</div>
+    <div class="ll anti">> [READY] Super properties per-token: ARMED</div>
+    <div class="ll global">> [READY] Global 429 detect: ARMED</div>
+    <div class="ll recover">> [READY] Auto-throttle: 100% (cruise control on)</div>
+    <div class="ll typing">> [READY] Fake typing: SHORT mode</div>
+    <div class="ll info">> [READY] Proactive rate-limit: ARMED</div>
+    <div class="ll info">> [READY] Pipeline engine: STANDBY</div>
+  </div>
+</div>
+
+</div>
+<script>
+'use strict';
+
+/* ============================================================
+   STATE
+   ============================================================ */
+let isRunning = false;
+let stopRequested = false;
+let sentCount = 0, failCount = 0, skipCount = 0;
+let rlCount = 0, ageSkipped = 0, penaltyCount = 0, typingCount = 0;
+let speedWindow = [];
+let logsArchive = [];
+let buildNumber = 360150;
+let audioCtx = null;
+let startTime = 0;
+let cycleResting = false;
+
+let tokenStates = new Map();
+let skippedTokens = new Set();
+let globalPenaltyUntil = 0;
+
+/* Throttle */
+let globalThrottleFactor = 1.0;
+let goodStreak = 0;
+let goodStreakStart = 0;
+
+/* Rate-limit buckets */
+let rateBuckets = new Map();
+
+/* Semaphore */
+let activeRequests = 0;
+let MAX_CONCURRENT = 40;
+
+/* Channel cooldown */
+let channelCooldown = new Map();
+
+/* Message pool */
+let fileMsgPool = [];
+let fileMsgUsed = new Set();
+let fileMsgSource = '';
+let msgQueue = [];
+
+/* Proxy */
+let proxyList = [];
+let proxyAssign = new Map();
+let proxyIndex = 0;
+
+/* Typing mode */
+let typingMode = 'short';
+
+/* Log throttle */
+let lastLogTime = 0;
+let pendingOkCount = 0;
+let pendingErrCount = 0;
+let lastMilestoneNotif = 0;
+const UI_THROTTLE_MS = 500;
+
+/* ============================================================
+   UTILS
+   ============================================================ */
+const rand = (min, max) => Math.floor(Math.random() * (max - min + 1)) + min;
+const randFloat = (min, max) => Math.random() * (max - min) + min;
+
+const shuffle = (arr) => {
+  const a = [...arr];
+  for (let i = a.length - 1; i > 0; i--) {
+    const j = Math.floor(Math.random() * (i + 1));
+    [a[i], a[j]] = [a[j], a[i]];
+  }
+  return a;
+};
+
+const sleep = (ms) => new Promise(r => setTimeout(r, Math.max(0, ms)));
+
+function stableHash(str) {
+  let h = 0;
+  for (let i = 0; i < str.length; i++) h = (h * 31 + str.charCodeAt(i)) | 0;
+  return Math.abs(h);
+}
+
+function sanitizeToken(t) {
+  if (!t) return '';
+  if (document.getElementById('anti_sanitize')?.checked === false) return String(t).trim();
+  return String(t)
+    .replace(/[\u200B-\u200D\uFEFF]/g, '')
+    .replace(/[\u00A0\u202F\u2007\u2060]/g, ' ')
+    .replace(/[\u2018\u2019\u201A\u201B\u201C\u201D\u201E\u201F]/g, '')
+    .replace(/^["'`\s]+/, '')
+    .replace(/["'`\s]+$/, '')
+    .trim();
+}
+
+function decodeUserId(token) {
+  try {
+    const b64 = token.split('.')[0];
+    const pad = '='.repeat((4 - b64.length % 4) % 4);
+    const uid = atob(b64 + pad);
+    return /^\d+$/.test(uid) ? uid : null;
+  } catch { return null; }
+}
+
+function getTokenAge(token) {
+  try {
+    const uid = decodeUserId(token);
+    if (!uid) return null;
+    const shifted = BigInt(uid) >> 22n;
+    const created = Number(shifted) + 1420070400000;
+    return (Date.now() - created) / 86400000;
+  } catch { return null; }
+}
+
+/* ============================================================
+   FINGERPRINT — per-token device_id từ localStorage seed
+   ============================================================ */
+const UA_POOL = [
+  'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/131.0.0.0 Safari/537.36',
+  'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/130.0.0.0 Safari/537.36',
+  'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/129.0.0.0 Safari/537.36',
+  'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/128.0.0.0 Safari/537.36',
+  'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/131.0.0.0 Safari/537.36',
+  'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/130.0.0.0 Safari/537.36',
+  'Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:133.0) Gecko/20100101 Firefox/133.0',
+  'Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:132.0) Gecko/20100101 Firefox/132.0',
+  'Mozilla/5.0 (Macintosh; Intel Mac OS X 10.15; rv:133.0) Gecko/20100101 Firefox/133.0',
+  'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/131.0.0.0 Safari/537.36 Edg/131.0.0.0',
+  'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/130.0.0.0 Safari/537.36 Edg/130.0.0.0',
+  'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/17.6 Safari/605.1.15',
+  'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/17.5 Safari/605.1.15',
+  'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/127.0.0.0 Safari/537.36',
+  'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/126.0.0.0 Safari/537.36',
+  'Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/131.0.0.0 Safari/537.36',
+  'Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/130.0.0.0 Safari/537.36',
+  'Mozilla/5.0 (X11; Ubuntu; Linux x86_64; rv:133.0) Gecko/20100101 Firefox/133.0',
+  'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/131.0.0.0 Safari/537.36 OPR/116.0.0.0',
+  'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/129.0.0.0 Safari/537.36',
+  'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/125.0.0.0 Safari/537.36',
+  'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/124.0.0.0 Safari/537.36',
+  'Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/129.0.0.0 Safari/537.36',
+  'Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:131.0) Gecko/20100101 Firefox/131.0'
+];
+const TIMEZONES = ['Asia/Ho_Chi_Minh','Asia/Bangkok','Asia/Singapore','Asia/Tokyo','Asia/Hong_Kong','Asia/Seoul','America/New_York','America/Los_Angeles','America/Chicago','Europe/London','Europe/Berlin','Europe/Paris','Australia/Sydney'];
+const LOCALES = ['en-US','en-GB','vi-VN','ja-JP','de-DE','fr-FR','ko-KR','th-TH','zh-CN'];
+
+function parseUA(ua) {
+  const out = { ua, browser:'Chrome', version:'131.0.0.0', major:'131', os:'Windows', osVer:'10', platform:'"Windows"', mobile:'?0' };
+  if (/Firefox\/([\d.]+)/.test(ua)) { out.browser='Firefox'; out.version=RegExp.$1; out.major=out.version.split('.')[0]; }
+  else if (/Edg\/([\d.]+)/.test(ua)) { out.browser='Edge'; out.version=RegExp.$1; out.major=out.version.split('.')[0]; }
+  else if (/OPR\/([\d.]+)/.test(ua)) { out.browser='Opera'; out.version=RegExp.$1; out.major=out.version.split('.')[0]; }
+  else if (/Chrome\/([\d.]+)/.test(ua)) { out.browser='Chrome'; out.version=RegExp.$1; out.major=out.version.split('.')[0]; }
+  else if (/Version\/([\d.]+).*Safari/.test(ua)) { out.browser='Safari'; out.version=RegExp.$1; out.major=out.version.split('.')[0]; }
+  if (/Windows NT 10/.test(ua)) { out.os='Windows'; out.osVer='10'; out.platform='"Windows"'; }
+  else if (/Mac OS X/.test(ua)) { out.os='Mac OS X'; out.osVer='10.15.7'; out.platform='"macOS"'; }
+  else if (/Linux/.test(ua)) { out.os='Linux'; out.osVer=''; out.platform='"Linux"'; out.mobile='?0'; }
+  return out;
+}
+
+function getDeviceSeed(token) {
+  const key = 'ccvc_dev_' + stableHash(token).toString(36);
+  let seed = localStorage.getItem(key);
+  if (!seed) {
+    seed = Math.random().toString(36).slice(2) + Date.now().toString(36);
+    localStorage.setItem(key, seed);
+  }
+  return seed;
+}
+
+const _profileCache = new Map();
+function getProfile(token) {
+  if (_profileCache.has(token)) return _profileCache.get(token);
+  const seed = getDeviceSeed(token);
+  const h = stableHash(seed);
+  const uaStr = UA_POOL[h % UA_POOL.length];
+  const p = parseUA(uaStr);
+  const tz = TIMEZONES[(h >> 3) % TIMEZONES.length];
+  const locale = LOCALES[(h >> 5) % LOCALES.length];
+  const profile = { ...p, timezone: tz, locale };
+  _profileCache.set(token, profile);
+  return profile;
+}
+
+const _superPropsCache = new Map();
+function getSuperProps(token) {
+  if (_superPropsCache.has(token)) return _superPropsCache.get(token);
+  const p = getProfile(token);
+  const sp = btoa(JSON.stringify({
+    os: p.os,
+    browser: p.browser,
+    device: '',
+    system_locale: p.locale,
+    browser_user_agent: p.ua,
+    browser_version: p.version,
+    os_version: p.osVer,
+    referrer: '',
+    referring_domain: '',
+    referring_domain_current: '',
+    release_channel: 'stable',
+    client_build_number: buildNumber,
+    client_event_source: null,
+    client_version: p.version,
+    native_build_number: null
+  }));
+  _superPropsCache.set(token, sp);
+  return sp;
+}
+
+const _headerCache = new Map();
+function getHeaders(token) {
+  if (_headerCache.has(token)) return _headerCache.get(token);
+  const p = getProfile(token);
+  const h = {
+    'Authorization': token,
+    'User-Agent': p.ua,
+    'Accept': '*/*',
+    'Accept-Language': `${p.locale},en;q=0.9`,
+    'Accept-Encoding': 'gzip, deflate, br',
+    'X-Discord-Locale': p.locale,
+    'X-Debug-Options': 'bugReporterEnabled',
+    'Origin': 'https://discord.com',
+    'Referer': 'https://discord.com/channels/@me',
+    'Sec-Fetch-Dest': 'empty',
+    'Sec-Fetch-Mode': 'cors',
+    'Sec-Fetch-Site': 'same-origin',
+    'Priority': 'u=1, i',
+    'Content-Type': 'application/json'
+  };
+  if (document.getElementById('anti_super_props')?.checked) {
+    h['X-Super-Properties'] = getSuperProps(token);
+    h['sec-ch-ua'] = `"${p.browser}";v="${p.major}", "Chromium";v="${p.major}", "Not_A Brand";v="24"`;
+    h['sec-ch-ua-mobile'] = p.mobile;
+    h['sec-ch-ua-platform'] = p.platform;
+  }
+  _headerCache.set(token, h);
+  return h;
+}
+
+function clearFingerprintCaches() {
+  _profileCache.clear();
+  _superPropsCache.clear();
+  _headerCache.clear();
+}
+
+/* ============================================================
+   PROXY
+   ============================================================ */
+function parseProxies() {
+  const raw = document.getElementById('proxies').value.split('\n').map(s => s.trim()).filter(s => s);
+  proxyList = raw;
+  proxyAssign.clear();
+  proxyIndex = 0;
+  const info = document.getElementById('proxy-info');
+  if (proxyList.length === 0) {
+    info.textContent = 'Không proxy = 1 IP gánh tất cả. Đi chậm là cách duy nhất sống lâu.';
+    info.classList.add('warn');
+  } else {
+    info.textContent = `Đã nạp ${proxyList.length} proxy · sticky=${document.getElementById('proxy_sticky')?.checked ? 'ON' : 'OFF'}`;
+    info.classList.remove('warn');
+  }
+}
+
+function getProxyFor(token) {
+  if (!proxyList.length) return null;
+  if (document.getElementById('proxy_sticky')?.checked) {
+    if (!proxyAssign.has(token)) {
+      proxyAssign.set(token, proxyList[proxyIndex % proxyList.length]);
+      proxyIndex++;
+    }
+    return proxyAssign.get(token);
+  }
+  return proxyList[proxyIndex++ % proxyList.length];
+}
+
+/* ============================================================
+   NETWORK
+   ============================================================ */
+async function fetchJSON(url, opts, token, maxRetries = 2) {
+  const useRetry = document.getElementById('anti_retry')?.checked;
+  const tries = useRetry ? maxRetries : 1;
+  let lastErr;
+  for (let i = 0; i < tries; i++) {
+    try {
+      return await fetch(url, { ...opts, cache: 'no-store', credentials: 'omit' });
+    } catch (e) {
+      lastErr = e;
+      if (i < tries - 1) await sleep(400 * (i + 1));
+    }
+  }
+  throw lastErr;
+}
+
+async function fetchWithRetry(url, opts, maxRetries = 2) {
+  return fetchJSON(url, opts, null, maxRetries);
+}
+/* ============================================================
+   RATE-LIMIT BUCKET — dùng header thật từ Discord
+   ============================================================ */
+function updateRateBucket(token, channelId, res) {
+  const useProactive = document.getElementById('anti_proactive')?.checked;
+  if (!useProactive) return;
+  const bucketId = res.headers.get('x-ratelimit-bucket') || (token + '|' + channelId);
+  const remaining = res.headers.get('x-ratelimit-remaining');
+  const resetAfter = res.headers.get('x-ratelimit-reset-after');
+  if (remaining === null || resetAfter === null) return;
+  rateBuckets.set(bucketId, {
+    remaining: parseInt(remaining, 10),
+    resetAt: Date.now() + parseFloat(resetAfter) * 1000,
+    token, channelId
+  });
+}
+
+async function waitRateBucket(token, channelId) {
+  const useProactive = document.getElementById('anti_proactive')?.checked;
+  if (!useProactive) return;
+  // Check all buckets for this token+channel
+  for (const [bid, b] of rateBuckets.entries()) {
+    if (b.token === token && b.channelId === channelId) {
+      if (b.remaining <= 0 && b.resetAt > Date.now()) {
+        const waitMs = b.resetAt - Date.now() + rand(30, 120);
+        if (waitMs > 0 && waitMs < 8000) await sleep(waitMs);
+      }
+    }
+  }
+}
+
+/* ============================================================
+   SEMAPHORE — không leak, không spin break
+   ============================================================ */
+async function acquireSlot() {
+  while (activeRequests >= MAX_CONCURRENT) {
+    await sleep(5);
+    if (stopRequested || !isRunning) throw new Error('stopped');
+  }
+  activeRequests++;
+}
+
+function releaseSlot() {
+  activeRequests = Math.max(0, activeRequests - 1);
+}
+
+/* ============================================================
+   CHANNEL COOLDOWN
+   ============================================================ */
+function canHitChannel(token, channelId) {
+  const cd = parseInt(document.getElementById('ch_cooldown').value) || 0;
+  if (cd <= 0) return true;
+  const key = token + '|' + channelId;
+  const last = channelCooldown.get(key) || 0;
+  return Date.now() - last >= cd * 1000;
+}
+
+function markChannelHit(token, channelId) {
+  channelCooldown.set(token + '|' + channelId, Date.now());
+}
+
+/* ============================================================
+   MESSAGE PICKER — reservation queue
+   ============================================================ */
+function loadMsgFile(e) {
+  const f = e.target.files[0];
+  if (!f) return;
+  const reader = new FileReader();
+  reader.onload = () => {
+    let raw = String(reader.result || '');
+    let lines = [];
+    const name = (f.name || '').toLowerCase();
+
+    if (name.endsWith('.json')) {
+      try {
+        const j = JSON.parse(raw);
+        if (Array.isArray(j)) lines = j.map(x => String(x));
+        else if (j && typeof j === 'object') lines = Object.values(j).map(x => String(x));
+      } catch {
+        notif('error', '📂 FILE LỖI', 'JSON không hợp lệ');
+        return;
+      }
+    } else {
+      lines = raw.split(/\r?\n/);
+      if (lines.length === 1 && lines[0].includes(',')) lines = lines[0].split(',');
+    }
+    lines = lines.map(x => String(x).trim()).filter(x => x.length > 0);
+    const unique = [...new Set(lines)];
+    if (!unique.length) { notif('error', '📂 FILE RỖNG', 'Không có câu'); return; }
+    fileMsgPool = unique;
+    fileMsgUsed.clear();
+    fileMsgSource = f.name;
+    updateMsgFileInfo();
+    const dupes = lines.length - unique.length;
+    notif('success', '📂 ĐÃ NẠP', `${unique.length} câu${dupes ? ` (loại ${dupes} trùng)` : ''}`, 4000);
+    writeLog(`[FILE] Nạp ${unique.length} câu từ "${f.name}"`, 'success');
+  };
+  reader.readAsText(f, 'utf-8');
+}
+
+function clearMsgFile() {
+  fileMsgPool = [];
+  fileMsgUsed.clear();
+  fileMsgSource = '';
+  const inp = document.getElementById('file_msg');
+  if (inp) inp.value = '';
+  updateMsgFileInfo();
+  notif('info', '📂 FILE', 'Đã xóa');
+}
+
+function updateMsgFileInfo() {
+  const el = document.getElementById('msg-file-info');
+  if (!el) return;
+  if (!fileMsgPool.length) { el.textContent = ''; el.classList.remove('warn'); return; }
+  const used = fileMsgUsed.size, total = fileMsgPool.length;
+  el.innerHTML = `📂 <b>${fileMsgSource}</b> · dùng ${used}/${total} · còn ${total - used}`;
+  el.classList.toggle('warn', total - used === 0);
+}
+
+function showMsgStats() {
+  if (!fileMsgPool.length) { notif('warn', '📊', 'Chưa có file câu'); return; }
+  notif('info', '📊 THỐNG KÊ', `Tổng: ${fileMsgPool.length} · Dùng: ${fileMsgUsed.size} · Còn: ${fileMsgPool.length - fileMsgUsed.size}`, 4000);
+}
+
+function buildMsgQueue(count) {
+  msgQueue = [];
+  const txt = document.getElementById('msg').value;
+  const noRepeat = document.getElementById('no_repeat')?.checked;
+  const resetWhenEmpty = document.getElementById('reset_when_empty')?.checked;
+
+  const sourcePool = fileMsgPool.length
+    ? fileMsgPool
+    : txt.split('\n').map(s => s.trim()).filter(s => s);
+
+  if (!sourcePool.length) return;
+
+  if (!noRepeat) {
+    for (let i = 0; i < count; i++) msgQueue.push(sourcePool[rand(0, sourcePool.length - 1)]);
+    return;
+  }
+
+  // no repeat: cần count câu khác nhau
+  let available = [];
+  if (fileMsgPool.length) {
+    for (let i = 0; i < sourcePool.length; i++) {
+      if (!fileMsgUsed.has(i)) available.push(i);
+    }
+    if (available.length < count && resetWhenEmpty) {
+      fileMsgUsed.clear();
+      available = Array.from({ length: sourcePool.length }, (_, i) => i);
+    }
+    available = shuffle(available);
+    const pickCount = Math.min(count, available.length);
+    for (let i = 0; i < pickCount; i++) {
+      fileMsgUsed.add(available[i]);
+      msgQueue.push(sourcePool[available[i]]);
+    }
+    // Nếu vẫn thiếu → fill random không trùng
+    while (msgQueue.length < count) {
+      msgQueue.push(sourcePool[rand(0, sourcePool.length - 1)]);
+    }
+  } else {
+    const idx = shuffle(Array.from({ length: sourcePool.length }, (_, i) => i));
+    for (let i = 0; i < count; i++) msgQueue.push(sourcePool[idx[i % sourcePool.length]]);
+  }
+}
+
+function nextMsg() {
+  if (msgQueue.length) return msgQueue.pop();
+  const txt = document.getElementById('msg').value;
+  const pool = fileMsgPool.length ? fileMsgPool : txt.split('\n').map(s => s.trim()).filter(s => s);
+  return pool.length ? pool[rand(0, pool.length - 1)] : '';
+}
+
+/* ============================================================
+   TYPING FAKE
+   ============================================================ */
+function setTyping(mode) {
+  typingMode = mode;
+  document.querySelectorAll('[id^="typing-"]').forEach(el => el.classList.remove('active'));
+  const btn = document.getElementById('typing-' + mode);
+  if (btn) btn.classList.add('active');
+  const badge = document.getElementById('typing-badge');
+  if (badge) badge.textContent = mode.toUpperCase();
+  localStorage.setItem('ccvc_typing', mode);
+  writeLog(`[TYPING] Mode: ${mode.toUpperCase()}`, 'typing');
+}
+
+async function sendTyping(token, channelId) {
+  try {
+    const proxy = getProxyFor(token);
+    if (proxy) return; // proxy fetch cần native, tạm skip trong browser
+    await fetch(`https://discord.com/api/v10/channels/${channelId}/typing`, {
+      method: 'POST',
+      headers: getHeaders(token),
+      cache: 'no-store',
+      credentials: 'omit'
+    });
+    typingCount++;
+  } catch {}
+}
+
+async function fakeTypeDelay(token, channelId, content, mode) {
+  if (mode === 'off') return;
+  const actual = mode === 'mixed'
+    ? (Math.random() < 0.5 ? 'short' : 'realistic')
+    : mode;
+
+  await sendTyping(token, channelId);
+
+  if (actual === 'short') {
+    await sleep(rand(300, 1200));
+    return;
+  }
+
+  // realistic
+  const cps = randFloat(4, 7);
+  const baseMs = (content.length / cps) * 1000;
+  const jittered = baseMs * randFloat(0.8, 1.3);
+  const totalMs = Math.max(800, Math.min(20000, jittered));
+  const start = Date.now();
+  while (Date.now() - start < totalMs) {
+    if (!isRunning || stopRequested) return;
+    const remaining = totalMs - (Date.now() - start);
+    if (remaining > 8000) {
+      await sleep(8000);
+      await sendTyping(token, channelId);
+    } else {
+      await sleep(remaining);
+    }
+  }
+}
+
+/* ============================================================
+   PRESET
+   ============================================================ */
+const PRESETS = {
+  stealth:    { delay: 3000, batch: 3,  typing: 'realistic', cycle_run: 10, cycle_rest: 5 },
+  balanced:   { delay: 1200, batch: 6,  typing: 'short',     cycle_run: 15, cycle_rest: 3 },
+  aggressive: { delay: 300,  batch: 12, typing: 'short',     cycle_run: 30, cycle_rest: 5 },
+  turbo:      { delay: 30,   batch: 30, typing: 'off',       cycle_run: 45, cycle_rest: 5 }
+};
+
+function setPreset(name) {
+  const p = PRESETS[name];
+  if (!p) return;
+  document.getElementById('delay').value = p.delay;
+  document.getElementById('batch_size').value = p.batch;
+  document.getElementById('cycle_run').value = p.cycle_run;
+  document.getElementById('cycle_rest').value = p.cycle_rest;
+  setTyping(p.typing);
+
+  document.querySelectorAll('.preset-btn').forEach(b => b.classList.remove('active'));
+  const btn = document.querySelector(`.preset-btn[data-preset="${name}"]`);
+  if (btn) btn.classList.add('active');
+
+  const badge = document.getElementById('preset-badge');
+  badge.textContent = name.toUpperCase();
+  badge.className = 'bdg ' + (name === 'turbo' ? 'bdg-err' : name === 'aggressive' ? 'bdg-warn' : name === 'stealth' ? 'bdg-p' : 'bdg-ok');
+
+  localStorage.setItem('ccvc_preset', name);
+  showWarningBanner(name);
+  writeLog(`[PRESET] ${name.toUpperCase()} · ${p.delay}ms · batch ${p.batch}`, 'info');
+}
+
+function markCustom() {
+  document.querySelectorAll('.preset-btn').forEach(b => b.classList.remove('active'));
+  const badge = document.getElementById('preset-badge');
+  badge.textContent = 'CUSTOM';
+  badge.className = 'bdg bdg-warn';
+  showWarningBanner('custom');
+}
+
+function showWarningBanner(preset) {
+  const el = document.getElementById('warn-banner');
+  const hasProxy = proxyList.length > 0;
+  let msg = '';
+  if (preset === 'turbo') {
+    msg = '☠️ TURBO LIỀU — không proxy + turbo = chết nhanh. Token sẽ bay trong phút-giờ. Anh đã được cảnh báo.';
+  } else if (preset === 'aggressive' && !hasProxy) {
+    msg = '🔥 AGGRESSIVE — sống giờ-ngày nếu không proxy. Cân nhắc dùng BALANCED hoặc STEALTH.';
+  } else if (preset === 'custom') {
+    const d = parseInt(document.getElementById('delay').value) || 0;
+    if (d < 500 && !hasProxy) msg = '⚠️ Delay < 500ms + không proxy = rủi ro cao.';
+  }
+  if (msg) { el.textContent = msg; el.classList.add('show'); }
+  else el.classList.remove('show');
+}
+/* ============================================================
+   FIRE ONE — gửi 1 tin
+   ============================================================ */
+async function fireOne(token, channelId, cfg, state, short) {
+  if (!isRunning || stopRequested || skippedTokens.has(token)) return;
+
+  // Channel cooldown
+  if (!canHitChannel(token, channelId)) {
+    skipCount++;
+    return;
+  }
+
+  // Proactive rate-limit wait
+  await waitRateBucket(token, channelId);
+
+  // Semaphore acquire
+  try { await acquireSlot(); } catch { return; }
+
+  try {
+    // Build content
+    let baseMsg = nextMsg();
+    if (!baseMsg) { releaseSlot(); return; }
+
+    let content = baseMsg;
+    if (document.getElementById('prefix_hash')?.checked) content = '# ' + content;
+
+    const tagMode = document.getElementById('tag_mode').value;
+    const tagId = document.getElementById('tag_id').value.trim();
+    const tagPos = document.getElementById('tag_pos').value;
+    const tagAfter = tagPos === 'after';
+
+    if (tagMode === 'everyone') {
+      content = tagAfter ? `${content} @everyone` : `@everyone ${content}`;
+    } else if (tagMode === 'user' && tagId) {
+      content = tagAfter ? `${content} <@${tagId}>` : `<@${tagId}> ${content}`;
+    }
+
+    // Fake typing
+    await fakeTypeDelay(token, channelId, content, typingMode);
+    if (!isRunning || stopRequested) { releaseSlot(); return; }
+
+    // Nonce
+    const nonce = (BigInt(Date.now()) << 22n | BigInt(rand(0, 4194303))).toString();
+
+    const body = JSON.stringify({ content, nonce, tts: false });
+
+    const res = await fetchWithRetry(
+      `https://discord.com/api/v10/channels/${channelId}/messages`,
+      { method: 'POST', headers: getHeaders(token), body },
+      2
+    );
+
+    markChannelHit(token, channelId);
+    updateRateBucket(token, channelId, res);
+
+    if (res.ok) {
+      sentCount++;
+      state.sentCount++;
+      state.msgInHour.push(Date.now());
+      speedWindow.push(Date.now());
+      pendingOkCount++;
+      goodStreak++;
+
+      // Recover throttle chậm — 300 tin + 60s
+      const now = Date.now();
+      if (!goodStreakStart) goodStreakStart = now;
+      if (goodStreak >= 300 && (now - goodStreakStart) >= 60000 && globalThrottleFactor < 1.0) {
+        globalThrottleFactor = Math.min(1.0, globalThrottleFactor + 0.05);
+        goodStreak = 0;
+        goodStreakStart = now;
+        writeLog(`[RECOVER] Throttle → ${Math.round(globalThrottleFactor * 100)}%`, 'recover');
+      }
+
+      if (Date.now() - lastLogTime > UI_THROTTLE_MS || pendingOkCount >= 25) flushOkLog();
+      const nowMs = Date.now();
+      if (sentCount % 1000 === 0 && nowMs - lastMilestoneNotif > 30000) {
+        notif('success', '🎉 MILESTONE', `Đã gửi ${sentCount} tin!`, 3000);
+        lastMilestoneNotif = nowMs;
+      }
+    } else if (res.status === 429) {
+      rlCount++;
+      let wait = parseInt(document.getElementById('retry_429').value) || 3000;
+      let isGlobal = false;
+      try {
+        const d = await res.json();
+        if (d.retry_after) wait = Math.ceil(d.retry_after * 1000) + 500;
+        if (d.global === true) isGlobal = true;
+      } catch {}
+      const gh = res.headers.get('x-ratelimit-global');
+      if (gh === 'true') isGlobal = true;
+
+      const useGlobal = document.getElementById('anti_global')?.checked;
+      const useAuto = document.getElementById('auto_throttle')?.checked;
+
+      if (isGlobal && useGlobal) {
+        globalPenaltyUntil = Math.max(globalPenaltyUntil, Date.now() + wait);
+        if (useAuto) globalThrottleFactor = 0.3;
+        goodStreak = 0;
+        writeLog(`[GLOBAL] 429 · throttle → 30%`, 'global');
+        notif('error', '🌍 GLOBAL RATE', `Nghỉ ${Math.round(wait / 1000)}s`, 3500);
+      } else if (document.getElementById('anti_penalty')?.checked) {
+        state.penalty = Date.now() + wait;
+        penaltyCount++;
+        if (useAuto) globalThrottleFactor = Math.max(0.35, globalThrottleFactor * 0.9);
+        goodStreak = 0;
+      } else {
+        skippedTokens.add(token);
+        skipCount++;
+      }
+    } else if (res.status === 401 || res.status === 403) {
+      failCount++;
+      skippedTokens.add(token);
+      writeLog(`[DEAD] ${short}... (${res.status})`, 'error');
+      notif('error', '💀 TOKEN DIE', `${short}... (${res.status})`, 3000);
+    } else {
+      failCount++;
+      pendingErrCount++;
+      let bodyTxt = '';
+      try { bodyTxt = (await res.text()).substring(0, 200); } catch {}
+      writeLog(`[HTTP ${res.status}] tk=${short} ch=${channelId.slice(0, 8)} | ${bodyTxt}`, 'error');
+    }
+  } catch (e) {
+    if (e.message === 'stopped') { releaseSlot(); return; }
+    failCount++;
+    pendingErrCount++;
+    writeLog(`[NET] tk=${short} ch=${channelId.slice(0, 8)} | ${e.message}`, 'error');
+  } finally {
+    releaseSlot();
+  }
+}
+
+/* ============================================================
+   WORKER per token
+   ============================================================ */
+async function runTokenWorker(token, cfg) {
+  const state = tokenStates.get(token);
+  const short = token.slice(0, 10);
+
+  if (cfg.antiAge && cfg.minAge > 0) {
+    const age = getTokenAge(token);
+    if (age !== null && age < cfg.minAge) {
+      ageSkipped++;
+      updateStats();
+      writeLog(`[AGE] ${short}... tuổi ${age.toFixed(0)}d < ${cfg.minAge}d → SKIP`, 'warn');
+      return;
+    }
+  }
+
+  const useAuto = document.getElementById('auto_throttle')?.checked;
+
+  while (isRunning && !stopRequested) {
+    if (skippedTokens.has(token)) return;
+    if (globalPenaltyUntil > Date.now()) { await sleep(300); continue; }
+    if (state.penalty > Date.now()) { await sleep(200); continue; }
+
+    const now = Date.now();
+    state.msgInHour = state.msgInHour.filter(t => now - t < 3600000);
+    if (cfg.burstLimit > 0 && state.msgInHour.length >= cfg.burstLimit) {
+      writeLog(`[LIMIT] ${short}... đạt ${cfg.burstLimit} tin/h, nghỉ 30s`, 'warn');
+      await sleep(30000);
+      continue;
+    }
+
+    const chs = cfg.chs.slice();
+    const batchSize = useAuto
+      ? Math.max(2, Math.floor(cfg.batchSize * globalThrottleFactor))
+      : cfg.batchSize;
+
+    // Round-robin qua channels với jitter
+    const order = shuffle(chs);
+    const jobs = [];
+
+    for (let i = 0; i < order.length && isRunning && !stopRequested; i++) {
+      if (globalPenaltyUntil > Date.now()) break;
+      if (state.penalty > Date.now()) break;
+
+      // Tạo batch nhỏ
+      const batch = order.slice(i, i + batchSize);
+      i += batch.length - 1;
+
+      for (const ch of batch) {
+        jobs.push(fireOne(token, ch, cfg, state, short));
+      }
+
+      // Delay giữa các batch
+      const base = cfg.baseDelay;
+      const jit = document.getElementById('anti_jitter')?.checked
+        ? base * randFloat(0.85, 1.2)
+        : base;
+      await sleep(Math.max(20, jit));
+    }
+
+    // Chờ hết batch hiện tại trước khi vòng mới
+    await Promise.allSettled(jobs);
+
+    if (!isRunning || stopRequested) break;
+    // Vòng nghỉ nhỏ
+    await sleep(rand(50, 250));
+  }
+}
+
+/* ============================================================
+   THROTTLE AUTO
+   ============================================================ */
+function updateThrottleUI() {
+  const el = document.getElementById('stat-throttle');
+  if (!el) return;
+  const pct = Math.round(globalThrottleFactor * 100);
+  el.textContent = pct + '%';
+  el.style.color = pct >= 90 ? 'var(--green)' : pct >= 60 ? 'var(--gold)' : 'var(--red)';
+  MAX_CONCURRENT = Math.max(4, Math.floor(40 * globalThrottleFactor));
+}
+
+/* ============================================================
+   AUTO-CYCLE — chạy X phút nghỉ Y phút
+   ============================================================ */
+async function cycleManager() {
+  const enabled = document.getElementById('auto_cycle')?.checked;
+  if (!enabled) return;
+  while (isRunning && !stopRequested) {
+    const runMin = parseInt(document.getElementById('cycle_run').value) || 15;
+    await sleep(runMin * 60 * 1000);
+    if (!isRunning || stopRequested) return;
+    const restMin = parseInt(document.getElementById('cycle_rest').value) || 0;
+    if (restMin <= 0) continue;
+    cycleResting = true;
+    document.getElementById('stat-cycle').textContent = 'REST';
+    document.getElementById('stat-cycle').style.color = 'var(--gold)';
+    writeLog(`[CYCLE] Nghỉ ${restMin} phút...`, 'warn');
+    notif('info', '😴 CYCLE', `Nghỉ ${restMin} phút`, 3000);
+    await sleep(restMin * 60 * 1000);
+    cycleResting = false;
+    document.getElementById('stat-cycle').textContent = 'RUN';
+    document.getElementById('stat-cycle').style.color = 'var(--green)';
+    writeLog(`[CYCLE] Tiếp tục chạy`, 'success');
+  }
+}
+
+/* ============================================================
+   STATS UI
+   ============================================================ */
+function animateNumber(el, to) {
+  const from = parseInt(el.textContent) || 0;
+  if (from === to) return;
+  const dur = 250;
+  const start = performance.now();
+  const ease = (p) => 1 - Math.pow(1 - p, 3);
+  const step = (t) => {
+    const p = Math.min(1, (t - start) / dur);
+    el.textContent = Math.floor(from + (to - from) * ease(p));
+    if (p < 1) requestAnimationFrame(step);
+    else el.textContent = to;
+  };
+  requestAnimationFrame(step);
+}
+
+function updateStats() {
+  animateNumber(document.getElementById('stat-sent'), sentCount);
+  animateNumber(document.getElementById('stat-fail'), failCount);
+  animateNumber(document.getElementById('stat-skip'), skipCount);
+  animateNumber(document.getElementById('stat-429'), rlCount);
+  animateNumber(document.getElementById('stat-age'), ageSkipped);
+  animateNumber(document.getElementById('stat-penalty'), penaltyCount);
+  animateNumber(document.getElementById('stat-typing'), typingCount);
+  document.getElementById('stat-concurrent').textContent = activeRequests;
+  const now = Date.now();
+  speedWindow = speedWindow.filter(t => now - t < 10000);
+  document.getElementById('stat-rate').textContent = (speedWindow.length / 10).toFixed(1);
+  updateThrottleUI();
+  if (startTime) {
+    const s = Math.floor((Date.now() - startTime) / 1000);
+    document.getElementById('stat-uptime').textContent = s < 60 ? s + 's' : Math.floor(s / 60) + 'm' + (s % 60) + 's';
+  }
+}
+setInterval(updateStats, 500);
+
+setInterval(() => {
+  if (fileMsgPool.length) updateMsgFileInfo();
+}, 1000);
+
+setInterval(() => {
+  if (pendingOkCount > 0 && Date.now() - lastLogTime > UI_THROTTLE_MS) flushOkLog();
+  if (pendingErrCount > 0) flushErrLog();
+}, 500);
+/* ============================================================
+   LOG
+   ============================================================ */
+function writeLog(msg, type = '') {
+  const log = document.getElementById('log');
+  if (!log) return;
+  const line = document.createElement('div');
+  line.className = 'll' + (type ? ' ' + type : '');
+  const t = new Date().toLocaleTimeString('vi-VN', { hour12: false });
+  const full = `[${t}] ${msg}`;
+  line.textContent = full;
+  line.dataset.text = full.toLowerCase();
+  log.appendChild(line);
+  log.scrollTop = log.scrollHeight;
+  logsArchive.push(full);
+  while (log.children.length > 300) log.removeChild(log.firstChild);
+}
+
+function flushOkLog() {
+  if (pendingOkCount > 0) {
+    writeLog(`[OK] +${pendingOkCount} tin · tổng ${sentCount}`, 'success');
+    pendingOkCount = 0;
+    lastLogTime = Date.now();
+  }
+}
+
+function flushErrLog() {
+  if (pendingErrCount > 0) {
+    writeLog(`[ERR] +${pendingErrCount} lỗi · tổng ${failCount}`, 'error');
+    pendingErrCount = 0;
+  }
+}
+
+function clearLog() {
+  document.getElementById('log').innerHTML = '<div class="ll info">> [SYSTEM] Log đã xóa</div>';
+  logsArchive = [];
+  notif('info', '📋 LOG', 'Đã xóa');
+}
+
+function exportLog() {
+  if (!logsArchive.length) { showToast('Log rỗng!', 'warn'); return; }
+  const blob = new Blob([logsArchive.join('\n')], { type: 'text/plain' });
+  const a = document.createElement('a');
+  a.href = URL.createObjectURL(blob);
+  a.download = `ccvc_v11_log_${Date.now()}.txt`;
+  a.click();
+  notif('success', '📥 EXPORT', `Đã lưu ${logsArchive.length} dòng`);
+}
+
+function filterLog(q) {
+  const rows = document.querySelectorAll('#log .ll');
+  q = q.trim().toLowerCase();
+  rows.forEach(r => {
+    if (!q) { r.style.display = ''; return; }
+    r.style.display = (r.dataset.text || '').includes(q) ? '' : 'none';
+  });
+}
+
+/* ============================================================
+   NOTIF / TOAST / AUDIO
+   ============================================================ */
+function initAudio() {
+  if (!audioCtx) {
+    try { audioCtx = new (window.AudioContext || window.webkitAudioContext)(); } catch {}
+  }
+  if (audioCtx && audioCtx.state === 'suspended') audioCtx.resume();
+}
+
+function playBeep(type) {
+  if (!audioCtx) return;
+  try {
+    const o = audioCtx.createOscillator();
+    const g = audioCtx.createGain();
+    o.connect(g); g.connect(audioCtx.destination);
+    const freq = type === 'error' ? 300 : type === 'warn' ? 500 : type === 'success' ? 900 : 700;
+    o.frequency.value = freq;
+    o.type = 'sine';
+    g.gain.value = 0.03;
+    o.start();
+    g.gain.exponentialRampToValueAtTime(0.001, audioCtx.currentTime + 0.12);
+    o.stop(audioCtx.currentTime + 0.12);
+  } catch {}
+}
+
+function notif(type, title, text, duration = 3000) {
+  const stack = document.getElementById('notif-stack');
+  if (!stack) return;
+  const icons = { success: '✅', error: '❌', info: 'ℹ️', warn: '⚠️' };
+  const el = document.createElement('div');
+  el.className = 'notif ' + type;
+  el.innerHTML = `<div class="notif-icon">${icons[type] || 'ℹ️'}</div>
+    <div class="notif-body">
+      <div class="notif-title">${title}</div>
+      <div class="notif-text">${text}</div>
+    </div>`;
+  stack.appendChild(el);
+  setTimeout(() => { el.classList.add('hide'); setTimeout(() => el.remove(), 400); }, duration);
+  playBeep(type);
+}
+
+function showToast(message, type = 'info') {
+  const t = document.getElementById('toast');
+  if (!t) return;
+  const icons = { success: '✅', error: '❌', info: 'ℹ️', warn: '⚠️' };
+  t.innerHTML = `<span style="font-size:22px">${icons[type] || 'ℹ️'}</span> ${message}`;
+  t.style.borderColor = type === 'error' ? 'var(--red)'
+    : type === 'warn' ? 'var(--gold)'
+    : type === 'success' ? 'var(--green)' : 'var(--cyan)';
+  t.classList.add('show');
+  clearTimeout(t._timer);
+  t._timer = setTimeout(() => t.classList.remove('show'), 2400);
+}
+
+/* ============================================================
+   PARTICLES / THEME / PROGRESS
+   ============================================================ */
+function spawnParticles(n = 8) {
+  const wrap = document.getElementById('particles');
+  if (!wrap) return;
+  wrap.innerHTML = '';
+  for (let i = 0; i < n; i++) {
+    const p = document.createElement('div');
+    p.className = 'particle';
+    p.style.left = Math.random() * 100 + '%';
+    p.style.animationDuration = (6 + Math.random() * 10) + 's';
+    p.style.animationDelay = (-Math.random() * 10) + 's';
+    p.style.background = ['#00ffff', '#ff00ff', '#9d00ff', '#ffd700'][i % 4];
+    p.style.boxShadow = `0 0 8px ${p.style.background}`;
+    wrap.appendChild(p);
+  }
+}
+
+function toggleTheme() {
+  document.body.classList.toggle('light-mode');
+  const isLight = document.body.classList.contains('light-mode');
+  document.getElementById('theme-btn').textContent = isLight ? '☀️' : '🌙';
+  localStorage.setItem('theme', isLight ? 'light' : 'dark');
+}
+
+function setProgress(pct) {
+  const bar = document.getElementById('progress');
+  if (!bar) return;
+  bar.style.width = pct + '%';
+  bar.classList.toggle('active', pct > 0 && pct < 100);
+  if (pct >= 100) setTimeout(() => { bar.style.width = '0'; bar.classList.remove('active'); }, 500);
+}
+
+/* ============================================================
+   TOKEN VAULT
+   ============================================================ */
+function addTokenField(val = '') {
+  const c = document.getElementById('token-container');
+  const n = c.querySelectorAll('.ti').length + 1;
+  const d = document.createElement('div');
+  d.className = 'ti';
+  const esc = String(val).replace(/"/g, '&quot;');
+  d.innerHTML = `<input type="text" class="token-input" placeholder="Token ${n}..." value="${esc}">
+    <button class="brm" onclick="removeToken(this)" title="Xóa">✕</button>`;
+  c.appendChild(d);
+}
+
+function removeToken(btn) {
+  const c = document.getElementById('token-container');
+  if (c.querySelectorAll('.ti').length > 1) {
+    btn.parentElement.remove();
+  } else {
+    btn.parentElement.querySelector('.token-input').value = '';
+  }
+  notif('warn', '🔑 TOKEN', 'Đã xóa');
+}
+
+function saveTokens() {
+  const tks = Array.from(document.querySelectorAll('.token-input'))
+    .map(i => sanitizeToken(i.value))
+    .filter(v => v);
+  localStorage.setItem('ccvc_tks', JSON.stringify(tks));
+  if (!tks.length) { showToast('Không có token để lưu!', 'warn'); return; }
+  notif('success', '💾 ĐÃ LƯU', `${tks.length} token`);
+}
+
+async function checkTokens() {
+  const raw = Array.from(document.querySelectorAll('.token-input')).map(i => i.value);
+  const tks = raw.map(sanitizeToken).filter(v => v);
+  if (!tks.length) { showToast('Chưa có token!', 'error'); return; }
+  notif('info', '🔍 CHECK', `Đang check ${tks.length} token...`);
+  setProgress(0);
+  let alive = 0, dead = 0, locked = 0;
+  for (let i = 0; i < tks.length; i++) {
+    setProgress(Math.round((i / tks.length) * 100));
+    try {
+      const r = await fetch('https://discord.com/api/v10/users/@me', {
+        headers: getHeaders(tks[i]),
+        cache: 'no-store'
+      });
+      if (r.ok) {
+        const u = await r.json();
+        alive++;
+        const age = getTokenAge(tks[i]);
+        writeLog(`[ALIVE] ${u.username} (age: ${age ? age.toFixed(0) + 'd' : '?'})`, 'success');
+      } else if (r.status === 401) { dead++; writeLog(`[DEAD] ${tks[i].slice(0, 12)}... (401)`, 'error'); }
+      else if (r.status === 403) { locked++; writeLog(`[LOCKED] ${tks[i].slice(0, 12)}... (403)`, 'warn'); }
+      else { dead++; writeLog(`[ERR] ${tks[i].slice(0, 12)}... (${r.status})`, 'error'); }
+    } catch (e) { dead++; writeLog(`[NET] ${e.message}`, 'error'); }
+    await sleep(1000); // 1s/token — không đốt rate-limit
+  }
+  setProgress(100);
+  notif(alive > 0 ? 'success' : 'error', '🔍 KẾT QUẢ',
+    `✅ ${alive} sống · ❌ ${dead} chết · 🔒 ${locked} khóa`, 5000);
+}
+
+/* ============================================================
+   CONFIG SAVE
+   ============================================================ */
+function saveConfig() {
+  const fields = ['channels', 'tag_mode', 'tag_id', 'tag_pos', 'delay', 'msg', 'burst_limit',
+    'retry_429', 'min_age', 'batch_size', 'ch_cooldown', 'cycle_run', 'cycle_rest', 'proxies'];
+  fields.forEach(f => {
+    const el = document.getElementById(f);
+    if (el) localStorage.setItem('ccvc_' + f, el.value);
+  });
+  const antiKeys = ['anti_super_props', 'anti_global', 'anti_penalty', 'anti_age',
+    'anti_proactive', 'anti_jitter', 'anti_sanitize', 'anti_retry',
+    'no_repeat', 'reset_when_empty', 'prefix_hash', 'auto_cycle', 'auto_throttle', 'proxy_sticky'];
+  antiKeys.forEach(k => {
+    const el = document.getElementById(k);
+    if (el) localStorage.setItem(k, el.checked);
+  });
+  clearFingerprintCaches();
+  parseProxies();
+  notif('success', '⚙️ CẤU HÌNH', 'Đã lưu');
+}
+
+/* ============================================================
+   START / STOP
+   ============================================================ */
+async function start() {
+  if (isRunning) { notif('warn', '⚠️ ĐANG CHẠY', 'Dừng trước!'); return; }
+
+  const raw = Array.from(document.querySelectorAll('.token-input')).map(i => i.value);
+  const tks = raw.map(sanitizeToken).filter(v => v);
+  const chs = document.getElementById('channels').value.split('\n').map(v => v.trim()).filter(v => v);
+  const msgText = document.getElementById('msg').value;
+  const hasFile = fileMsgPool.length > 0;
+  const hasMsg = msgText.split('\n').map(s => s.trim()).filter(s => s).length > 0;
+
+  if (!tks.length) { notif('error', '❌ TOKEN', 'Chưa có token!'); return; }
+  if (!chs.length) { notif('error', '❌ CHANNEL', 'Chưa có channel!'); return; }
+  if (!hasFile && !hasMsg) { notif('error', '❌ NỘI DUNG', 'Chưa có câu để gửi!'); return; }
+
+  isRunning = true;
+  stopRequested = false;
+  cycleResting = false;
+  sentCount = 0; failCount = 0; skipCount = 0;
+  rlCount = 0; ageSkipped = 0; penaltyCount = 0; typingCount = 0;
+  speedWindow = [];
+  pendingOkCount = 0; pendingErrCount = 0;
+  lastLogTime = 0;
+  lastMilestoneNotif = 0;
+  skippedTokens.clear();
+  tokenStates.clear();
+  rateBuckets.clear();
+  channelCooldown.clear();
+  msgQueue = [];
+  activeRequests = 0;
+  globalPenaltyUntil = 0;
+  globalThrottleFactor = 1.0;
+  goodStreak = 0;
+  goodStreakStart = 0;
+  startTime = Date.now();
+
+  clearFingerprintCaches();
+  parseProxies();
+  document.getElementById('status-dot').classList.add('active');
+  document.body.classList.add('spamming');
+  document.getElementById('stat-cycle').textContent = 'RUN';
+  document.getElementById('stat-cycle').style.color = 'var(--green)';
+
+  const delayMs = Math.max(10, parseInt(document.getElementById('delay').value) || 1200);
+  const batchSize = Math.max(1, Math.min(100, parseInt(document.getElementById('batch_size').value) || 6));
+  const turbo = delayMs <= 100;
+
+  writeLog(`[START] ${turbo ? '☠️ TURBO' : 'NORMAL'} · ${delayMs}ms · batch ${batchSize} · ${tks.length} tk · ${chs.length} ch`, 'info');
+  notif('success', '🚀 V11 KHỞI ĐỘNG', `${tks.length} tk · ${chs.length} ch · ${delayMs}ms`, 3500);
+  showToast('⚡ MÃI ĐỈNH!', 'success');
+
+  const cfg = {
+    chs,
+    baseDelay: delayMs,
+    batchSize,
+    burstLimit: parseInt(document.getElementById('burst_limit').value) || 0,
+    retry429: parseInt(document.getElementById('retry_429').value) || 3000,
+    minAge: parseInt(document.getElementById('min_age').value) || 0,
+    antiAge: document.getElementById('anti_age')?.checked
+  };
+
+  tks.forEach(t => tokenStates.set(t, { sentCount: 0, msgInHour: [], penalty: 0 }));
+
+  cycleManager();
+
+  await Promise.allSettled(tks.map(token => runTokenWorker(token, cfg)));
+
+  isRunning = false;
+  document.getElementById('status-dot').classList.remove('active');
+  document.body.classList.remove('spamming');
+  if (pendingOkCount > 0) flushOkLog();
+  if (pendingErrCount > 0) flushErrLog();
+  const elapsed = Math.floor((Date.now() - startTime) / 1000);
+  notif('info', '⏹️ KẾT THÚC', `Gửi ${sentCount} · lỗi ${failCount} · ${elapsed}s`, 4500);
+  writeLog(`[END] ${sentCount} gửi · ${failCount} lỗi · ${skipCount} skip · ${elapsed}s`, 'info');
+}
+
+function stop() {
+  if (!isRunning) { notif('warn', '⚠️ KHÔNG CHẠY', 'Tool chưa chạy!'); return; }
+  isRunning = false;
+  stopRequested = true;
+  document.getElementById('status-dot').classList.remove('active');
+  document.body.classList.remove('spamming');
+  if (pendingOkCount > 0) flushOkLog();
+  if (pendingErrCount > 0) flushErrLog();
+  writeLog('[STOP] Đã dừng toàn bộ worker', 'warn');
+  notif('warn', '🛑 ĐÃ DỪNG', `Tổng: ${sentCount} gửi · ${failCount} lỗi`, 4000);
+  showToast('🛑 Đã dừng', 'warn');
+}
+
+/* ============================================================
+   KEYBOARD
+   ============================================================ */
+document.addEventListener('keydown', (e) => {
+  if (e.ctrlKey && e.key === 'Enter') { e.preventDefault(); start(); }
+  else if (e.key === 'Escape' && isRunning) { e.preventDefault(); stop(); }
+  else if (e.ctrlKey && e.key === 's') { e.preventDefault(); saveConfig(); }
+  else if (e.ctrlKey && e.key === 'l') { e.preventDefault(); clearLog(); }
+});
+
+/* ============================================================
+   BUILD NUMBER
+   ============================================================ */
+async function fetchBuildNumber() {
+  try {
+    const res = await fetch('https://discord.com/login', { mode: 'cors', cache: 'no-store' });
+    const html = await res.text();
+    const m = html.match(/buildNumber["\s:]+([0-9]{6})/);
+    if (m) { buildNumber = parseInt(m[1]); writeLog(`[BUILD] #${buildNumber}`, 'info'); }
+  } catch {
+    writeLog(`[BUILD] Fallback #${buildNumber}`, 'warn');
+  }
+}
+
+/* ============================================================
+   BOOT
+   ============================================================ */
+window.addEventListener('DOMContentLoaded', async () => {
+  spawnParticles(8);
+  initAudio();
+
+  if (localStorage.getItem('theme') === 'light') toggleTheme();
+
+  const tks = JSON.parse(localStorage.getItem('ccvc_tks') || '[]');
+  if (tks.length) {
+    document.getElementById('token-container').innerHTML = '';
+    tks.forEach(t => addTokenField(t));
+  }
+
+  const fields = ['channels', 'tag_mode', 'tag_id', 'tag_pos', 'delay', 'msg', 'burst_limit',
+    'retry_429', 'min_age', 'batch_size', 'ch_cooldown', 'cycle_run', 'cycle_rest', 'proxies'];
+  fields.forEach(f => {
+    const v = localStorage.getItem('ccvc_' + f);
+    if (v !== null) {
+      const el = document.getElementById(f);
+      if (el) el.value = v;
+    }
+  });
+
+  const antiKeys = ['anti_super_props', 'anti_global', 'anti_penalty', 'anti_age',
+    'anti_proactive', 'anti_jitter', 'anti_sanitize', 'anti_retry',
+    'no_repeat', 'reset_when_empty', 'prefix_hash', 'auto_cycle', 'auto_throttle', 'proxy_sticky'];
+  antiKeys.forEach(k => {
+    const el = document.getElementById(k);
+    if (!el) return;
+    const v = localStorage.getItem(k);
+    if (v !== null) el.checked = v === 'true';
+  });
+
+  const savedTyping = localStorage.getItem('ccvc_typing') || 'short';
+  setTyping(savedTyping);
+
+  const savedPreset = localStorage.getItem('ccvc_preset') || 'balanced';
+  setPreset(savedPreset);
+
+  parseProxies();
+  updateStats();
+  updateMsgFileInfo();
+  updateThrottleUI();
+
+  await fetchBuildNumber();
+
+  notif('success', '👑 ANH EM CCVC V11', `Sẵn sàng · ${tks.length} token · build #${buildNumber}`, 4000);
+  writeLog(`[BOOT] V11 MAI ĐỈNH · ${tks.length} token · build #${buildNumber}`, 'success');
+  writeLog('[HINT] Ctrl+Enter: SPAM · Esc: DỪNG · Ctrl+S: Lưu · Ctrl+L: Xóa log', 'info');
+});
+</script>
+</body>
+</html>
